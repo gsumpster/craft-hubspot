@@ -1,0 +1,24 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Hubspot Fieldtype plugin for Craft CMS 3.x
+ *
+ * Form Field Input
+ *
+ * @author    George Sumpster
+ * @copyright Copyright (c) 2022 George Sumpster
+ * @link      gsumpster.com
+ * @package   HubspotFieldtype
+ * @since     0.1.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{{ forms.selectizeField({
+        instructions: 'Select a form from the list below',
+        options: options,
+        id: name,
+        name: name,
+        value: value})
+}}

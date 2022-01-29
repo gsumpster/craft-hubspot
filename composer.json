@@ -1,0 +1,56 @@
+{
+    "name": "gsumpster/hubspot-fieldtype",
+    "description": "This plugin allows users to select Hubspot Forms from their Hubspot Marketing account and allows template developers to easy embed Hubspot forms.",
+    "type": "craft-plugin",
+    "version": "0.1.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "hubspot fieldtype"
+    ],
+    "support": {
+        "docs": "https://github.com/gsumpster/hubspot-fieldtype/blob/master/README.md",
+        "issues": "https://github.com/gsumpster/hubspot-fieldtype/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "George Sumpster",
+            "homepage": "https://gsumpster.com"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "^3.0.0",
+        "hubspot/hubspot-php": "*"
+    },
+    "require-dev": {
+      "craftcms/cms": "^3.2.0",
+      "codeception/codeception": "^3.0",
+      "vlucas/phpdotenv": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "gsumpster\\hubspotfieldtype\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Hubspot Fieldtype",
+        "handle": "hubspot-fieldtype",
+        "developer": "George Sumpster",
+        "developerUrl": "gsumpster.com",
+        "documentationUrl": "https://github.com/gsumpster/hubspot-fieldtype/blob/master/README.md",
+        "changelogUrl": "https://raw.githubusercontent.com/gsumpster/hubspot-fieldtype/master/CHANGELOG.md",
+        "components": {
+            "form": "gsumpster\\hubspotfieldtype\\services\\Form"
+        },
+        "class": "gsumpster\\hubspotfieldtype\\HubspotFieldtype"
+    },
+    "config": {
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true,
+            "craftcms/plugin-installer": true
+        }
+    }
+}

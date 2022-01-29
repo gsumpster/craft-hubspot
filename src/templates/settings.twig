@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * Hubspot Fieldtype plugin for Craft CMS 3.x
+ *
+ * Hubspot Fieldtype Settings.twig
+ *
+ * @author    George Sumpster
+ * @copyright Copyright (c) 2022 George Sumpster
+ * @link      gsumpster.com
+ * @package   HubspotFieldtype
+ * @since     0.1.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("gsumpster\\hubspotfieldtype\\assetbundles\\hubspotfieldtype\\HubspotFieldtypeAsset") %}
+
+{{ forms.textField({
+    label: 'Hubspot Access Token',
+    instructions: 'Enter some setting here.',
+    id: 'hubspotApiKey',
+    name: 'hubspotApiKey',
+    value: settings['hubspotApiKey']})
+}}
