@@ -1,1 +1,30 @@
-{"pluginName":"Hubspot Fieldtype","pluginDescription":"This plugin allows users to select Hubspot Forms from their Hubspot Marketing account and allows template developers to easy embed Hubspot forms.","pluginVersion":"0.1.0","pluginAuthorName":"George Sumpster","pluginVendorName":"gsumpster","pluginAuthorUrl":"gsumpster.com","pluginAuthorGithub":"gsumpster","codeComments":"yes","pluginComponents":["fieldtypes","models","services","settings","tests"],"consolecommandName":"","controllerName":"","cpsectionName":"","elementName":"","fieldName":"form","modelName":"form","purchasableName":"","recordName":"","serviceName":"form","taskName":"","utilityName":"","widgetName":"","apiVersion":"api_version_3_0"}
+{
+  "pluginName": "Hubspot Fieldtype",
+  "pluginDescription": "This plugin allows users to select Hubspot Forms from their Hubspot Marketing account and allows template developers to easy embed Hubspot forms.",
+  "pluginVersion": "0.1.0",
+  "pluginAuthorName": "George Sumpster",
+  "pluginVendorName": "gsumpster",
+  "pluginAuthorUrl": "gsumpster.com",
+  "pluginAuthorGithub": "gsumpster",
+  "codeComments": "yes",
+  "pluginComponents": [
+    "fieldtypes",
+    "models",
+    "services",
+    "settings",
+    "tests"
+  ],
+  "consolecommandName": "",
+  "controllerName": "",
+  "cpsectionName": "",
+  "elementName": "",
+  "fieldName": "form",
+  "modelName": "form",
+  "purchasableName": "",
+  "recordName": "",
+  "serviceName": "form",
+  "taskName": "",
+  "utilityName": "",
+  "widgetName": "",
+  "apiVersion": "api_version_3_0"
+}
