@@ -33,16 +33,11 @@ class Form extends Component
     // =========================================================================
 
     /**
-     * This function can literally be anything you want, and you can have as many service
-     * functions as you want
-     *
-     * From any other plugin file, call it like this:
-     *
-     *     HubspotFieldtype::$plugin->form->exampleService()
-     *
-     * @return mixed
+     * This function returns an array all of the forms in the Hubspot account.
+     * 
+     * @return array
      */
-    public function exampleService()
+    public function getAllForms()
     {
         $key = HubspotFieldtype::$plugin->getSettings()->hubspotApiKey;
         
@@ -52,13 +47,10 @@ class Form extends Component
 
         $hubspot = \SevenShores\Hubspot\Factory::create($key);
         $response = $hubspot->forms()->all();
-        $forms = [['label' => 'Select a Form', 'value' => '']];
+        $forms = [];
 
-        foreach ($response as $form) {
-            $forms[] = [
-                'value' => $form[0]->guid,
-                'label' => $form[0]->name,
-            ];
+        foreach ($response->data as $form) {
+            $forms[] = $form;
         }
         
         return $forms;

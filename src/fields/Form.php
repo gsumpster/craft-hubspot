@@ -344,7 +344,16 @@ class Form extends Field
         $jsonVars = Json::encode($jsonVars);
         Craft::$app->getView()->registerJs("$('#{$namespacedId}-field').HubspotFieldtypeForm(" . $jsonVars . ");");
 
-        $forms = HubspotFieldtype::getInstance()->FormService->exampleService();
+        $forms = HubspotFieldtype::$plugin->form->getAllForms();
+
+        $options = [];
+
+        foreach ($forms as $form) {
+            $options[] = [
+                'label' => $form->name,
+                'value' => $form->guid,
+            ];
+        }
 
         // Render the input template
         return Craft::$app->getView()->renderTemplate(
@@ -353,7 +362,7 @@ class Form extends Field
                 'name' => $this->handle,
                 'value' => $value,
                 'field' => $this,
-                'options' => $forms,
+                'options' => $options,
                 'id' => $id,
                 'namespacedId' => $namespacedId,
             ]
