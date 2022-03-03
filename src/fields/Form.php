@@ -334,16 +334,6 @@ class Form extends Field
         $id = Craft::$app->getView()->formatInputId($this->handle);
         $namespacedId = Craft::$app->getView()->namespaceInputId($id);
 
-        // Variables to pass down to our field JavaScript to let it namespace properly
-        $jsonVars = [
-            'id' => $id,
-            'name' => $this->handle,
-            'namespace' => $namespacedId,
-            'prefix' => Craft::$app->getView()->namespaceInputId(''),
-            ];
-        $jsonVars = Json::encode($jsonVars);
-        Craft::$app->getView()->registerJs("$('#{$namespacedId}-field').HubspotFieldtypeForm(" . $jsonVars . ");");
-
         $forms = HubspotFieldtype::$plugin->form->getAllForms();
 
         $options = [];
@@ -354,6 +344,20 @@ class Form extends Field
                 'value' => $form->guid,
             ];
         }
+
+        // Variables to pass down to our field JavaScript to let it namespace properly
+        $jsonVars = [
+            'id' => $id,
+            'name' => $this->handle,
+            'namespace' => $namespacedId,
+            'prefix' => Craft::$app->getView()->namespaceInputId(''),
+            'initialValue' => $value,
+            'forms' => $forms
+        ];
+        
+        $jsonVars = Json::encode($jsonVars);
+        Craft::$app->getView()->registerJs("$('#{$namespacedId}-field').HubspotFieldtypeForm(" . $jsonVars . ");");
+
 
         // Render the input template
         return Craft::$app->getView()->renderTemplate(

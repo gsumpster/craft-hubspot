@@ -9,3 +9,104 @@
  * @package   HubspotFieldtype
  * @since     0.1.0
  */
+
+.hsff-preview {
+    width: 100%;
+    box-sizing: border-box;
+
+    border: 1px solid #cdd8e4;
+    border-radius: 5px;
+}
+
+.hsff-preview .hsff-preview-details {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px;
+
+}
+
+.hsff-preview .hsff-preview-details p {
+    margin: 0;
+}
+
+.hsff-preview .hsff-preview-details .hsff-preview-details__title {
+    display: inline-flex;
+    align-items: center;
+}
+
+.hsff-preview .hsff-preview-details .hsff-preview-details__edit {
+    color: #fff;
+    background: #ff7a59;
+    padding: 5px 12px;
+
+    border-radius: 6px;
+}
+
+.hsff-preview .hsff-preview-details .hsff-preview-details__preview {
+    padding: 5px 12px;
+    border-radius: 6px;
+    background: #607d9f40;
+    margin-left: 10px;
+}
+
+.hsff-preview .hsff-preview-details .hsff-preview-details__preview::before {
+    content: 'view';
+    font-family: "Craft";
+    speak: none;
+    -webkit-font-feature-settings: "liga","dlig";
+    -ms-font-feature-settings: "liga","dlig";
+    -o-font-feature-settings: "liga","dlig";
+    font-feature-settings: "liga","dlig";
+    text-rendering: optimizeLegibility;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+    text-align: center;
+    font-style: normal;
+    vertical-align: middle;
+    word-wrap: normal !important;
+    -webkit-user-select: none;
+    user-select: none;
+    opacity: .8;
+}
+
+.hsff-preview .hsff-preview-details .hsff-preview-details__status {
+    height: 8px;
+    width: 8px;
+
+    display: block;
+
+    border-radius: 50%;
+    background: #00bda5;
+
+    margin-right: 5px;
+}
+
+
+.hsff-preview__iframe {
+    display: none;
+    box-sizing: border-box;
+    width: 100%;
+
+    padding: 16px 16px 0;
+
+    -webkit-box-shadow: inset 0px 5px 5px 0px rgba(0,0,0,0.1); 
+    box-shadow: inset 0px 5px 5px 0px rgba(0,0,0,0.1);
+}
+
+.hsff-preview__iframe iframe {
+    width: 100%;
+    min-height: 400px;
+}
+
+.hsff-preview--open .hsff-preview__iframe {
+    display: block;
+}
