@@ -52,7 +52,7 @@
 
                             <div>
                                 <a class="hsff-preview-details__edit" target="_blank" href="https://app.hubspot.com/forms/${form.portalId}/editor/${form.guid}/edit/form">Edit in Hubspot</a>
-                                ${_this.options.disablePreview && `<button type="button" id="${_this.options.name}-preview" class="hsff-preview-details__preview"></button>`}
+                                ${!_this.options.disablePreview && `<button type="button" id="${_this.options.name}-preview" class="hsff-preview-details__preview"></button>`}
                             </div>
                         </div>
                     `;

@@ -220,12 +220,12 @@ class Form extends Field
      */
     public function getSettingsHtml()
     {
+
         // Render the settings template
         return Craft::$app->getView()->renderTemplate(
             'hubspot-fieldtype/_components/fields/Form_settings',
             [
-                'name' => $this->handle,
-                'field' => $this
+                'settings' => $this->getSettings(),
             ]
         );;
     }
