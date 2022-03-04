@@ -52,7 +52,7 @@
 
                             <div>
                                 <a class="hsff-preview-details__edit" target="_blank" href="https://app.hubspot.com/forms/${form.portalId}/editor/${form.guid}/edit/form">Edit in Hubspot</a>
-                                <button type="button" id="${_this.options.name}-preview" class="hsff-preview-details__preview"></button>
+                                ${_this.options.disablePreview && `<button type="button" id="${_this.options.name}-preview" class="hsff-preview-details__preview"></button>`}
                             </div>
                         </div>
                     `;
@@ -75,20 +75,33 @@
                         </body>
                     `;
 
-                    const embedDiv = document.createElement('div');
-                    embedDiv.className = "hsff-preview__iframe"                   
-                    var iframe = document.createElement('iframe');
-                    embedDiv.appendChild(iframe);
-
                     _this.element.querySelector(".hsff-preview").appendChild(detailsDiv);
-                    _this.element.querySelector('.hsff-preview').appendChild(embedDiv);
 
-                    _this.element.querySelector(`#${_this.options.name}-preview`).onclick = () => _this.element.querySelector('.hsff-preview').classList.toggle("hsff-preview--open")
                     _this.element.querySelector(`#fields-${_this.options.name}`).onchange = () => _this.updatePreview(_this.element.querySelector(`#fields-${_this.options.name}`).selectize.items[0]);
+
+
+
+                    if (!_this.options.disablePreview) {
+                        const embedDiv = document.createElement('div');
+                        embedDiv.className = "hsff-preview__iframe"                   
+                        var iframe = document.createElement('iframe');
+                        embedDiv.appendChild(iframe);
+
+                    _this.element.querySelector('.hsff-preview').appendChild(embedDiv);
 
                     iframe.contentWindow.document.open();
                     iframe.contentWindow.document.write(embedCode);
                     iframe.contentWindow.document.close();
+
+                    _this.element.querySelector(`#${_this.options.name}-preview`).onclick = () => _this.element.querySelector('.hsff-preview').classList.toggle("hsff-preview--open")
+
+
+                    }
+
+
+
+
+
                 }
         }
     };

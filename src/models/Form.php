@@ -37,7 +37,7 @@ class Form extends Model
      *
      * @var string
      */
-    public $someAttribute = 'Some Default';
+    public $previewDisabled = false;
 
     // Public Methods
     // =========================================================================
@@ -54,9 +54,6 @@ class Form extends Model
      */
     public function rules()
     {
-        return [
-            ['someAttribute', 'string'],
-            ['someAttribute', 'default', 'value' => 'Some Default'],
-        ];
+        return [];
     }
 }

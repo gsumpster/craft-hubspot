@@ -43,7 +43,7 @@ class Form extends Field
      *
      * @var string
      */
-    public $someAttribute = 'Some Default';
+    public $previewDisabled = false;
 
     // Static Methods
     // =========================================================================
@@ -74,10 +74,6 @@ class Form extends Field
     public function rules()
     {
         $rules = parent::rules();
-        $rules = array_merge($rules, [
-            ['someAttribute', 'string'],
-            ['someAttribute', 'default', 'value' => 'Some Default'],
-        ]);
         return $rules;
     }
 
@@ -225,7 +221,13 @@ class Form extends Field
     public function getSettingsHtml()
     {
         // Render the settings template
-        return null;
+        return Craft::$app->getView()->renderTemplate(
+            'hubspot-fieldtype/_components/fields/Form_settings',
+            [
+                'name' => $this->handle,
+                'field' => $this
+            ]
+        );;
     }
 
     /**
@@ -352,6 +354,7 @@ class Form extends Field
             'namespace' => $namespacedId,
             'prefix' => Craft::$app->getView()->namespaceInputId(''),
             'initialValue' => $value,
+            'disablePreview' => $this->previewDisabled,
             'forms' => $forms
         ];
         
