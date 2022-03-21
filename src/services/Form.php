@@ -55,4 +55,22 @@ class Form extends Component
         
         return $forms;
     }
+
+    /**
+     * This function returns a single form, given an guid.
+     * 
+     * @return array
+     */
+    public function getForm($guid)
+    {
+        $key = HubspotFieldtype::$plugin->getSettings()->hubspotApiKey;
+        
+        if (!$key) {
+            return null;
+        }
+
+        $hubspot = \SevenShores\Hubspot\Factory::create($key);
+        $response = $hubspot->forms()->getById($guid);
+        return $response;
+    }
 }

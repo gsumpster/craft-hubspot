@@ -1,6 +1,6 @@
 {
   "pluginName": "Hubspot Fieldtype",
-  "pluginDescription": "This plugin allows users to select Hubspot Forms from their Hubspot Marketing account and allows template developers to easy embed Hubspot forms.",
+  "pluginDescription": "This plugin allows users to select Hubspot Forms from their Hubspot Marketing account and allows template developers to easily embed Hubspot forms.",
   "pluginVersion": "0.1.0",
   "pluginAuthorName": "George Sumpster",
   "pluginVendorName": "gsumpster",

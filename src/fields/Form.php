@@ -123,7 +123,7 @@ class Form extends Field
      */
     public function serializeValue($value, ElementInterface $element = null)
     {
-        return parent::serializeValue($value, $element);
+        return $value;
     }
 
     /**
@@ -340,11 +340,19 @@ class Form extends Field
 
         $options = [];
 
-        foreach ($forms as $form) {
-            $options[] = [
-                'label' => $form->name,
-                'value' => $form->guid,
-            ];
+        $key = HubspotFieldtype::$plugin->getSettings()->hubspotApiKey;
+
+        if (!$key) {
+            $forms = [];
+        }
+
+        if ($key && count($forms)) {
+            foreach ($forms as $form) {
+                $options[] = [
+                    'label' => $form->name,
+                    'value' => $form->guid,
+                ];
+            }
         }
 
         // Variables to pass down to our field JavaScript to let it namespace properly
@@ -358,7 +366,7 @@ class Form extends Field
             'forms' => $forms
         ];
         
-        $jsonVars = Json::encode($jsonVars);
+        $jsonVars = Json::encode($jsonVars, JSON_UNESCAPED_SLASHES);
         Craft::$app->getView()->registerJs("$('#{$namespacedId}-field').HubspotFieldtypeForm(" . $jsonVars . ");");
 
 

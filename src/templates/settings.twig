@@ -17,9 +17,10 @@
 
 {% do view.registerAssetBundle("gsumpster\\hubspotfieldtype\\assetbundles\\hubspotfieldtype\\HubspotFieldtypeAsset") %}
 
+
 {{ forms.textField({
     label: 'Hubspot Access Token',
-    instructions: 'Enter your Hubspot Access Token',
+    instructions: 'Enter your Hubspot Access Token. You can find this under "Account Setup", "Integrations" and "API Key". ',
     id: 'hubspotApiKey',
     name: 'hubspotApiKey',
     value: settings['hubspotApiKey']})
